@@ -34,7 +34,7 @@ This project is a Customer Management API developed using Java Spring Boot. It a
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/customer-management-api.git
+   git clone https://github.com/sukhminderarora/customer-management.git
 2. Import the project using build.gradle
 3. Run the Spring Boot Application - Open a web browser and go to the following URL to access the customer management interface:
    ```bash

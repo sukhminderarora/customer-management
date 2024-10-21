@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Create Customer</title>
+    <style>
+        .form-label {
+            font-weight: bold;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 1rem;
+        }
+        .success-message {
+            color: green;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Error messages for field validations -->
+            <div th:if="${firstNameError}" class="error-message">
+                <p th:text="${firstNameError}"></p>
+            </div>
+            <div th:if="${lastNameError}" class="error-message">
+                <p th:text="${lastNameError}"></p>
+            </div>
+            <div th:if="${dobError}" class="error-message">
+                <p th:text="${dobError}"></p>
+            </div>
+
+            <!-- Display error message if customer is duplicate -->
+            <div th:if="${errorMessage}" class="error-message">
+                <p th:text="${errorMessage}"></p>
+            </div>
+
+            <!-- Display success message if customer data is stored -->
+            <div th:if="${successMessage}" class="success-message">
+                <p th:text="${successMessage}"></p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Create Customer</h4>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/customers}" th:object="${customer}" method="post">
+                        <div class="mb-3 row">
+                            <label for="firstName" class="col-sm-4 col-form-label form-label">First Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="firstName" th:field="*{firstName}" class="form-control" placeholder="Enter your first name">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="lastName" class="col-sm-4 col-form-label form-label">Last Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="lastName" th:field="*{lastName}" class="form-control" placeholder="Enter your last name">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="dateOfBirth" class="col-sm-4 col-form-label form-label">Date of Birth</label>
+                            <div class="col-sm-8">
+                                <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Add Customer</button>
+                            <a th:href="@{/customers/list}" class="btn btn-secondary">View Customer List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

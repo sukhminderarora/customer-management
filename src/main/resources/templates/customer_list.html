@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+  <title>Customer List</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="d-flex justify-content-between mb-3">
+        <a href="javascript:history.back()" class="btn btn-primary">Back</a>
+        <a th:href="@{/customers}" class="btn btn-primary">Add Customer</a>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h4>Customers List</h4>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Date of Birth</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer : ${customers}">
+              <td th:text="${customer.firstName}">First Name</td>
+              <td th:text="${customer.lastName}">Last Name</td>
+              <td th:text="${customer.dateOfBirth}">Date of Birth</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

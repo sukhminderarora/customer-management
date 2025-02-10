@@ -39,3 +39,4 @@ This project is a Customer Management API developed using Java Spring Boot. It a
 3. Run the Spring Boot Application - Open a web browser and go to the following URL to access the customer management interface:
    ```bash
    http://localhost:8080/customers
+4. The Rest endpoints will also be available

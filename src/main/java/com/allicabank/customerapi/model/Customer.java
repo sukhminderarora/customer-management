@@ -25,4 +25,14 @@ public class Customer {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
+    }
 }

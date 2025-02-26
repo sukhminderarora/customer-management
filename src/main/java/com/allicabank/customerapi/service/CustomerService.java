@@ -25,6 +25,12 @@ public class CustomerService {
      * @return the saved customer entity.
      */
     public Customer saveCustomer(Customer customer) {
+        if(customer.getFirstName().isEmpty()){
+            throw new RuntimeException("First Name should be present");
+        }
+        if(customerExists(customer)){
+            throw new RuntimeException("This Customer already exists");
+        }
         return customerRepository.save(customer);
     }
 

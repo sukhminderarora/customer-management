@@ -19,4 +19,5 @@ public class ErrorResponse {
     private String message;
     private String errorCode;
     private LocalDateTime timestamp;
+    private Object Details;
 }

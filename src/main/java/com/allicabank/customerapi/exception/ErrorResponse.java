@@ -18,4 +18,5 @@ public class ErrorResponse {
     private HttpStatus status;
     private String message;
     private LocalDateTime timestamp;
+    private Object Details;
 }
